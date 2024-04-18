@@ -3,8 +3,8 @@
 Программа использует методы шиврования моноалфавитной замены, перестановок и дробления.
 
 На вход постуапет файл с алфовитом шифрования, ключом шифрования и самим текстом для шифрования:
-![Image alt](https://raw.githubusercontent.com/NikKha03/encryption_methods/main/image/structure.png)
+<image src="https://raw.githubusercontent.com/NikKha03/encryption_methods/main/image/structure.png" alt="img" width="400px">
 Результатом работы программы является зашифрованный файл:
-![Image alt](https://raw.githubusercontent.com/NikKha03/encryption_methods/main/image/cipher.png)
+<image src="https://raw.githubusercontent.com/NikKha03/encryption_methods/main/image/cipher.png" alt="img" width="400px">
 ### Пример использования:
-[![asciicast](https://asciinema.org/a/2ovfxpMBwIXHXxanXc2n1lnoI.svg)](https://asciinema.org/a/2ovfxpMBwIXHXxanXc2n1lnoI)
+<a href="https://asciinema.org/a/2ovfxpMBwIXHXxanXc2n1lnoI" target="_blank"><img src="https://asciinema.org/a/2ovfxpMBwIXHXxanXc2n1lnoI.svg" width="400px"/></a>
