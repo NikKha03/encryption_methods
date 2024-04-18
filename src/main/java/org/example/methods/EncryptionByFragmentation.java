@@ -11,23 +11,27 @@ public class EncryptionByFragmentation implements Method {
     public String ciphering(String symbols, String key, String text) throws Exception {
         // обработанный ключ и текст
         String processedKey = CipherUtils.cipherPreparation(key);
-        String processedText = CipherUtils.cipherPreparation(text);
+        String processedText = CipherUtils.cipherPreparation(text)
+                .replace('Ё', 'Е')
+                .replace('Ъ', 'Ь')
+                .replace("J", "I");
 
         // мой алфавит
         String myAlphabet = CipherUtils.myAlphabet(processedKey, symbols)
-                .replace('J', ' ')
                 .replace('Ё', ' ')
                 .replace('Ъ', ' ')
-                .replaceAll(" ", "");
+                .replace('J', ' ')
+                .replace(" ", "");
 
         // полибианский квадрат
         char[][] polybianQuadrant = {};
         if (symbols.equals("АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")) {
             polybianQuadrant = MatrixUtils.textInMatrix(myAlphabet, 6);
-            polybianQuadrant[5][2] = 1;
-            polybianQuadrant[5][3] = 2;
-            polybianQuadrant[5][4] = 3;
-            polybianQuadrant[5][5] = 4;
+            polybianQuadrant[5][1] = 1;
+            polybianQuadrant[5][2] = 2;
+            polybianQuadrant[5][3] = 3;
+            polybianQuadrant[5][4] = 4;
+            polybianQuadrant[5][5] = 5;
         } else if (symbols.equals("ABCDEFGHIJKLMNOPQRSTUVWXYZ")) {
             polybianQuadrant = MatrixUtils.textInMatrix(myAlphabet, 5);
         }
@@ -60,22 +64,23 @@ public class EncryptionByFragmentation implements Method {
 
         // мой алфавит
         String myAlphabet = CipherUtils.myAlphabet(processedKey, symbols)
-                .replace('J', ' ')
                 .replace('Ё', ' ')
-                .replaceAll(" ", "");
+                .replace('Ъ', ' ')
+                .replace('J', ' ')
+                .replace(" ", "");
 
         // полибианский квадрат
         char[][] polybianQuadrant = {};
         if (symbols.equals("АБВГДЕЁЖЗИЙКЛМНОПРСТУФХЦЧШЩЪЫЬЭЮЯ")) {
             polybianQuadrant = MatrixUtils.textInMatrix(myAlphabet, 6);
-            polybianQuadrant[5][2] = 1;
-            polybianQuadrant[5][3] = 2;
-            polybianQuadrant[5][4] = 3;
-            polybianQuadrant[5][5] = 4;
+            polybianQuadrant[5][1] = 1;
+            polybianQuadrant[5][2] = 2;
+            polybianQuadrant[5][3] = 3;
+            polybianQuadrant[5][4] = 4;
+            polybianQuadrant[5][5] = 5;
         } else if (symbols.equals("ABCDEFGHIJKLMNOPQRSTUVWXYZ")) {
             polybianQuadrant = MatrixUtils.textInMatrix(myAlphabet, 5);
         }
-//        printCharArray(polybianQuadrant);
 
         char[] chars = processedText.toCharArray();
         // массив координат строк и столбцов
@@ -84,9 +89,6 @@ public class EncryptionByFragmentation implements Method {
         var firstPart = coordinateInOneLine.subList(0, coordinateInOneLine.size() / 2);
         var secondPart = coordinateInOneLine.subList(coordinateInOneLine.size() / 2, coordinateInOneLine.size());
 
-//        System.out.println(firstPart);
-//        System.out.println(secondPart);
-
         StringBuilder s = new StringBuilder();
         for (int i = 0; i < firstPart.size(); i++) {
             s.append(polybianQuadrant[firstPart.get(i)][secondPart.get(i)]);
@@ -94,6 +96,7 @@ public class EncryptionByFragmentation implements Method {
 
         return s.toString();
     }
+
     public static void printCharArray(char[][] array) {
         for (int i = 0; i < array.length; i++) {
             for (int j = 0; j < array[i].length; j++) {

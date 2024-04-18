@@ -12,12 +12,15 @@ public class CipherUtils {
                 .replaceAll(" ", "")
                 .replaceAll(",", "")
                 .replaceAll(";", "")
+                .replaceAll(":", "")
                 .replaceAll("\\.", "")
                 .replaceAll("!", "")
                 .replaceAll("\\?", "")
                 .replaceAll("\"", "")
                 .replaceAll("\n", "")
                 .replaceAll("-", "")
+                .replaceAll("'", "")
+                .replaceAll("’", "")
                 .replaceAll(" ", "")
                 .toUpperCase();
     }
